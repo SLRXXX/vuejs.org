@@ -1,0 +1,1037 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>模板语法 - Vue.js 中文文档 - vuefe.cn</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Vue.js - JavaScript 渐进式框架">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/syntax.html">
+    <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/syntax.html">
+    <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/syntax.html">
+    <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/syntax.html">
+    <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/syntax.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/syntax.html">
+    <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/syntax.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="模板语法 — Vue.js">
+    <meta property="og:description" content="Vue.js - JavaScript 渐进式框架">
+    <meta property="og:image" content="https://vuefe.cn//images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="模板语法 — Vue.js">
+    <meta name="twitter:description" content="Vue.js - JavaScript 渐进式框架">
+    <meta name="twitter:image" content="https://vuefe.cn/images/logo.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+    <link rel="icon" href="/images/logo.png" type="image/png">
+
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <link rel="manifest" href="/manifest.json">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="/css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script src="/js/vue.js"></script>
+    <script>window.PAGE_TYPE = "guide"</script>
+
+    <!-- baidu -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?ebacf70d9d85cfb235c83d600113ee3e";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+  </head>
+  <body class="docs">
+    <div id="mobile-bar" >
+      <a class="menu-button"></a>
+      <a class="logo" href="/"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/logo.png">
+    <span>Vue.js</span>
+  </a>
+  <span style="overflow: hidden; display: inline-block; position: relative; top: 10px; left: 6px; font-size: 12px;">
+    2018.01.22 与 vuejs.org  同步<br>相关说明请点击<a target="_blank" href="https://github.com/docschina/vuejs.org/blob/cn/UPDATE.md" style="color: dodgerblue">这里</a>
+  </span>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/v2/guide/" class="nav-link current">指南</a></li>
+      <li><a href="/v2/api/" class="nav-link">API</a></li>
+      <li><a href="/v2/style-guide/" class="nav-link">风格指南</a></li>
+      <li><a href="/v2/examples/" class="nav-link">示例</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">生态系统</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>帮助</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">论坛</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">聊天室</a></li>
+    </ul></li>
+    <li><h4>工具</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">webpack 模板</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue loader</a></li>
+      </ul>
+    </li>
+    <li><h4>核心库</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue 服务器端渲染</a></li>
+    </ul></li>
+    <li><h4>信息</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">升级路线</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">推特</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">博客</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">工作</a></li>
+    </ul></li>
+    <li><h4>资源列表</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">官方仓库</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue 优选</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue 资源</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">团队</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">支持 Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">单次捐助</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">循环捐助</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">T恤商店</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">多语言</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container contribute">
+  <a class="nav-link">参与贡献</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+        <li><a href="/about/index.html" class="nav-link">公告说明</a></li>
+        <li><a href="https://github.com/docschina/vuejs.org/blob/cn/UPDATE.md" class="nav-link">更新记录</a></li>
+      </ul></li>
+  </ul>
+</li>
+<li class="nav-dropdown-container docschina">
+  <a class="nav-link" style="color: #e96901">印记中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+        <li><a href="https://docschina.org/" target="_blank">印记中文首页</a></li>
+        <li><a href="https://docschina.org/home/about" target="_blank">加入我们翻译文档</a></li>
+        <li><a href="https://doc.webpack-china.org/" target="_blank">webpack 中文文档</a></li>
+        <li><a href="https://parceljs.docschina.org/" target="_blank">Parcel.js 中文文档</a></li>
+        <li><a href="https://doc.react-china.org/" target="_blank">React.js 中文文档</a></li>
+        <li><a href="http://nodejs.cn/" target="_blank">Node.js 中文文档</a></li>
+      </ul></li>
+    <li>
+  </ul>
+</li>
+
+<li>
+
+  </ul>
+</div>
+
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/v2/guide/" class="nav-link current">指南</a></li>
+      <li><a href="/v2/api/" class="nav-link">API</a></li>
+      <li><a href="/v2/style-guide/" class="nav-link">风格指南</a></li>
+      <li><a href="/v2/examples/" class="nav-link">示例</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">生态系统</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>帮助</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">论坛</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">聊天室</a></li>
+    </ul></li>
+    <li><h4>工具</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">webpack 模板</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue loader</a></li>
+      </ul>
+    </li>
+    <li><h4>核心库</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue 服务器端渲染</a></li>
+    </ul></li>
+    <li><h4>信息</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">升级路线</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">推特</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">博客</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">工作</a></li>
+    </ul></li>
+    <li><h4>资源列表</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">官方仓库</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue 优选</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue 资源</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">团队</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">支持 Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">单次捐助</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">循环捐助</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">T恤商店</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">多语言</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container contribute">
+  <a class="nav-link">参与贡献</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+        <li><a href="/about/index.html" class="nav-link">公告说明</a></li>
+        <li><a href="https://github.com/docschina/vuejs.org/blob/cn/UPDATE.md" class="nav-link">更新记录</a></li>
+      </ul></li>
+  </ul>
+</li>
+<li class="nav-dropdown-container docschina">
+  <a class="nav-link" style="color: #e96901">印记中文</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+        <li><a href="https://docschina.org/" target="_blank">印记中文首页</a></li>
+        <li><a href="https://docschina.org/home/about" target="_blank">加入我们翻译文档</a></li>
+        <li><a href="https://doc.webpack-china.org/" target="_blank">webpack 中文文档</a></li>
+        <li><a href="https://parceljs.docschina.org/" target="_blank">Parcel.js 中文文档</a></li>
+        <li><a href="https://doc.react-china.org/" target="_blank">React.js 中文文档</a></li>
+        <li><a href="http://nodejs.cn/" target="_blank">Node.js 中文文档</a></li>
+      </ul></li>
+    <li>
+  </ul>
+</li>
+
+<li>
+
+    </ul>
+    <div class="list">
+      <div class="main-sponsor">
+        <span>白金赞助商</span>
+        <div>
+        <a href="https://stdlib.com" target="_blank" class="logo">
+          <img src="/images/stdlib.png">
+        </a>
+        <a href="http://tooltwist.com/" target="_blank" class="logo">
+          <img src="/images/tooltwist.png">
+        </a>
+        <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+          <img src="/images/vueschool.png">
+        </a>
+        <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+          <img src="/images/datacamp.png">
+        </a>
+        </div>
+      </div>
+      <a class="become-backer" href="/support-vuejs">
+        成为赞助者
+      </a>
+      <h2>
+        Guide
+        
+          <select class="version-select">
+            <option value="SELF" selected>2.x</option>
+            <option value="v1">1.0</option>
+            <option value="012">0.12</option>
+            <option value="011">0.11</option>
+          </select>
+        
+      </h2>
+      <ul class="menu-root">
+  
+    
+    
+      
+        <li><h3>基础概要</h3></li>
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/installation.html" class="sidebar-link">安装</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/index.html" class="sidebar-link">介绍</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/instance.html" class="sidebar-link">Vue 实例</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/syntax.html" class="sidebar-link current">模板语法</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/computed.html" class="sidebar-link">computed 属性和 watcher</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/class-and-style.html" class="sidebar-link">class 和 style 绑定</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/conditional.html" class="sidebar-link">根据条件进行渲染</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/list.html" class="sidebar-link">列表渲染</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/events.html" class="sidebar-link">事件处理</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/forms.html" class="sidebar-link">表单 input 绑定</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/components.html" class="sidebar-link">组件</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>过渡 & 动画</h3></li>
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/transitions.html" class="sidebar-link">进入、离开和列表的过渡</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/transitioning-state.html" class="sidebar-link">状态间的过渡</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>可重用 & 合成</h3></li>
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/mixins.html" class="sidebar-link">mixin</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/custom-directive.html" class="sidebar-link">自定义指令</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/render-function.html" class="sidebar-link">render 函数 & jsx</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/plugins.html" class="sidebar-link">插件</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/filters.html" class="sidebar-link">过滤器</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>工具</h3></li>
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/deployment.html" class="sidebar-link">生产环境部署</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/single-file-components.html" class="sidebar-link">单文件组件</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/unit-testing.html" class="sidebar-link">单元测试</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/typescript.html" class="sidebar-link">TypeScript 支持</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>扩展升级</h3></li>
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/routing.html" class="sidebar-link">路由</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/state-management.html" class="sidebar-link">状态管理</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/ssr.html" class="sidebar-link">服务端渲染</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+        <li><h3>内部原理</h3></li>
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/reactivity.html" class="sidebar-link">深入响应式原理</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>升级迁移</h3></li>
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/migration.html" class="sidebar-link">从 Vue 1.x 迁移</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/migration-vue-router.html" class="sidebar-link">从 Vue Router 0.7.x 迁移</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/migration-vuex.html" class="sidebar-link">从 Vuex 0.6.x 迁移到 1.0</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>其他更多</h3></li>
+      
+  
+  
+    <li>
+      <a href="/v2/guide/comparison.html" class="sidebar-link">对比其他框架</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/join.html" class="sidebar-link">加入 Vue.js 社区</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+    <li>
+      <a href="/v2/guide/team.html" class="sidebar-link">认识团队</a>
+    </li>
+  
+  
+</ul>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="content guide with-sidebar syntax-guide">
+  
+    
+      <!--<div id="ad">
+  <script>
+    (function () {
+      var s = document.createElement('script')
+      s.setAttribute('async', '')
+      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
+      s.id = '_carbonads_js'
+      document.getElementById('ad').appendChild(s)
+    })()
+  </script>
+</div>
+-->
+    
+  
+  
+    <h1>模板语法</h1>
+  
+  
+    <p>Vue.js 使用基于 HTML 的模板语法，允许声明式地将要渲染的 DOM 和 Vue 实例中的 data 数据绑定。所有 Vue.js 的模板都是有效的 HTML，能够被遵循规范的浏览器和 HTML 解析器解析。</p>
+<p>在底层的实现上，Vue 将模板编译为虚拟 DOM 渲染函数。结合响应式系统，在应用程序状态改变时，Vue 能够智能地找出重新渲染的最小数量的组件，并应用最少量的 DOM 操作。</p>
+<p>如果你熟悉虚拟 DOM 的概念，并且倾向于使用原生 JavaScript，还可以不使用模板，而是<a href="render-function.html">直接编写渲染函数(render function)</a>，具备可选的 JSX 语法支持。</p>
+<h2 id="插值-Interpolations"><a href="#插值-Interpolations" class="headerlink" title="插值(Interpolations)"></a>插值(Interpolations)</h2><h3 id="文本-Text"><a href="#文本-Text" class="headerlink" title="文本(Text)"></a>文本(Text)</h3><p>数据绑定最基本的形式，就是使用 “mustache” 语法（双花括号）的文本插值(text interpolation)：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Message: &#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>mustache 标签将会被替换为 data 对象上对应的 <code>msg</code> 属性的值。只要绑定的数据对象上的 <code>msg</code> 属性发生改变，插值内容也会随之更新。</p>
+<p>也可以通过使用 <a href="../api/#v-once">v-once 指令</a>，执行一次性插值，也就是说，在数据改变时，插值内容不会随之更新。但是请牢记，这也将影响到同一节点上的所有绑定：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-once</span>&gt;</span>这里的值永远不会改变：&#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="原始-HTML-Raw-HTML"><a href="#原始-HTML-Raw-HTML" class="headerlink" title="原始 HTML(Raw HTML)"></a>原始 HTML(Raw HTML)</h3><p>双花括号语法，会将数据中的 HTML 转为纯文本后再进行插值。为了输出真正的 HTML，你需要使用 <code>v-html</code> 指令：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>使用双花括号语法：&#123;&#123; rawHtml &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>使用 v-html 指令：<span class="tag">&lt;<span class="name">span</span> <span class="attr">v-html</span>=<span class="string">"rawHtml"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<div id="example1" class="demo">
+  <p>使用双花括号语法：{{ rawHtml }}</p>
+  <p>使用 v-html 指令：<span v-html="rawHtml"></span></p>
+</div>
+<script>
+new Vue({
+  el: '#example1',
+  data: function () {
+    return {
+      rawHtml: '<span style="color: red">This should be red.</span>'
+    }
+  }
+})
+</script>
+
+<p><code>span</code> 中的内容，将会被替换为 <code>rawHtml</code> 属性的值，并且作为原始 HTML 插入 - 会忽略解析属性值中的数据绑定。请注意，无法使用 <code>v-html</code> 来组合局部模板，这是因为 Vue 不是基于字符串(string-based)的模板引擎。反之，对于用户界面(UI)，组件更适合作为可重用和可组合的基本单位。</p>
+<p class="tip">在网站中动态渲染任意的 HTML 是非常危险的，因为这很容易导致网站受到 <a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="noopener">XSS 攻击</a>。请只对可信内容使用 HTML 插值，<strong>绝对不要</strong>对用户提供的内容使用 HTML 插值。</p>
+
+<h3 id="属性-Attributes"><a href="#属性-Attributes" class="headerlink" title="属性(Attributes)"></a>属性(Attributes)</h3><p>不能在 Vue 模板中的 HTML 属性上使用双花括号语法(mustache)。而是应该使用 <a href="../api/#v-bind">v-bind 指令</a>：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:id</span>=<span class="string">"dynamicId"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在属性是布尔类型的一些情况中，<code>v-bind</code> 的作用有点不同，只要值存在就会隐含为 <code>true</code>。在这个例子中：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-bind:disabled</span>=<span class="string">"isButtonDisabled"</span>&gt;</span>Button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果 <code>isButtonDisabled</code> 的值为 <code>null</code>, <code>undefined</code> 或 <code>false</code>，<code>disabled</code> 属性甚至不会被包含在渲染后的 <code>&lt;button&gt;</code> 元素中。</p>
+<h3 id="使用-JavaScript-表达式"><a href="#使用-JavaScript-表达式" class="headerlink" title="使用 JavaScript 表达式"></a>使用 JavaScript 表达式</h3><p>到目前为止，我们只实现了将模板绑定到基本的属性键上。然而，Vue.js 实际上能够支持通过完整的 JavaScript 表达式，将模板与任意的数据绑定在一起：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;&#123; number + 1 &#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123; ok ? 'YES' : 'NO' &#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123; message.split('').reverse().join('') &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:id</span>=<span class="string">"'list-' + id"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这些表达式，将在所属的 Vue 实例的数据作用域下，作为 JavaScript 取值。有个限制是，每个绑定都只能包含<strong>单个表达式</strong>，所以以下示例都<strong>无法运行</strong>：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 这是语句，不是表达式 --&gt;</span></span><br><span class="line">&#123;&#123; var a = 1 &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 流控制也无法运行，请使用三元表达式 --&gt;</span></span><br><span class="line">&#123;&#123; if (ok) &#123; return message &#125; &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p class="tip">模板表达式放置在沙盒中，只能访问全局变量的一个白名单列表，如 <code>Math</code> 和 <code>Date</code>。在模板表达式中，你不应该试图访问用户定义的全局变量。</p>
+
+<h2 id="指令-Directives"><a href="#指令-Directives" class="headerlink" title="指令(Directives)"></a>指令(Directives)</h2><p>指令(directive)是带有 <code>v-</code> 前缀的特殊属性。指令属性的值期望接收的是<strong>单个 JavaScript 表达式</strong>（<code>v-for</code> 是例外情况，稍后我们再讨论）。指令的职责是，当表达式的值改变时，将其产生的影响效果，响应式地作用于 DOM。回顾我们在介绍中看到的例子：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"seen"</span>&gt;</span>Now you see me<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里，<code>v-if</code> 指令将根据表达式 <code>seen</code> 的值的真假来移除/插入 <code>&lt;p&gt;</code> 元素。</p>
+<h3 id="参数-Arguments"><a href="#参数-Arguments" class="headerlink" title="参数(Arguments)"></a>参数(Arguments)</h3><p>一些指令能够接收一个“参数”，在指令名称之后以 <code>:</code> 表示。例如，<code>v-bind</code> 指令可以用于响应式地更新 HTML 属性：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-bind:href</span>=<span class="string">"url"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里 <code>href</code> 是参数，告知 <code>v-bind</code> 指令将元素的 <code>href</code> 属性与表达式 <code>url</code> 的值绑定在一起。</p>
+<p>另一个示例是 <code>v-on</code> 指令，用于监听 DOM 事件：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click</span>=<span class="string">"doSomething"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里，参数是要监听事件的名称。稍后我们会详细地讨论事件处理。</p>
+<h3 id="修饰符-Modifiers"><a href="#修饰符-Modifiers" class="headerlink" title="修饰符(Modifiers)"></a>修饰符(Modifiers)</h3><p>修饰符(modifier)是以 <code>.</code> 表示的特殊后缀，表明应当以某种特殊方式绑定指令。例如，<code>.prevent</code> 修饰符告诉 <code>v-on</code> 指令，在触发事件后调用 <code>event.preventDefault()</code>：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">v-on:submit.prevent</span>=<span class="string">"onSubmit"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>稍后我们在探索这些特性时，你就会看到其他修饰符的相关示例，例如 <a href="events.html#Event-Modifiers"><code>v-on</code></a> 和 <a href="forms.html#Modifiers"><code>v-model</code></a>。</p>
+<h2 id="简写-Shorthands"><a href="#简写-Shorthands" class="headerlink" title="简写(Shorthands)"></a>简写(Shorthands)</h2><p>在模板中，<code>v-</code> 前缀作为非常符合直觉的提示，能够十分有效地标识出 Vue 特定(Vue-specific)属性。当你在使用 Vue.js 为现有标签添加动态行为(dynamic behavior)时，<code>v-</code> 前缀很有帮助，然而，对于一些频繁用到的指令来说，就会感到使用繁琐。同时，在构建由 Vue.js 管理所有模板的<a href="https://en.wikipedia.org/wiki/Single-page_application" target="_blank" rel="noopener">单页面应用程序(SPA - single page application)</a>时，<code>v-</code> 前缀也变得没那么重要了。因此，Vue.js 为 <code>v-bind</code> 和 <code>v-on</code> 这两个最常用的指令，提供了特定简写：</p>
+<h3 id="v-bind-简写"><a href="#v-bind-简写" class="headerlink" title="v-bind 简写"></a><code>v-bind</code> 简写</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 完整语法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-bind:href</span>=<span class="string">"url"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 简写 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"url"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="v-on-简写"><a href="#v-on-简写" class="headerlink" title="v-on 简写"></a><code>v-on</code> 简写</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 完整语法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click</span>=<span class="string">"doSomething"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 简写 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> @<span class="attr">click</span>=<span class="string">"doSomething"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>它们看起来可能与通常我们见到的 HTML 属性略有不同，但是，其实 <code>:</code> 和 <code>@</code> 都是符合属性名称(attribute name)相关标准的有效字符，并且所有支持 Vue.js 的浏览器都能够正确解析它们。此外，它们并不会出现在最终渲染的 HTML 标记中。简写语法是完全可选的书写方式，然而，随着你深入地了解它们的用法之后，你会领会到这种简单直接的简写方式，是非常赏心悦目的用法。</p>
+<hr>
+<blockquote>
+<p>原文：<a href="https://vuejs.org/v2/guide/syntax.html" target="_blank" rel="noopener">https://vuejs.org/v2/guide/syntax.html</a></p>
+</blockquote>
+<hr>
+
+  
+  
+    <div class="guide-links">
+      
+        <span>← <a href="/v2/guide/instance.html">Vue 实例</a></span>
+      
+      
+        <span style="float: right;"><a href="/v2/guide/computed.html">computed 属性和 watcher</a> →</span>
+      
+    </div>
+  
+  <div class="footer">
+      <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+    发现错误？想参与编辑？
+    <a href="https://github.com/docschina/vuejs.org/blob/cn/src/v2/guide/syntax.md" target="_blank">
+      在 Github 上编辑此页！
+    </a>
+  </div>
+</div>
+
+        
+      </div>
+      <script src="/js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="/js/css.escape.js"></script>
+    <script src="/js/common.js"></script>
+
+    <!-- search -->
+    <link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/search.css">
+    <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js" type="text/javascript"></script>
+    <script>
+    [
+      '#search-query-nav',
+      '#search-query-sidebar',
+      '#search-query-menu'
+    ].forEach(function (selector) {
+      if (!document.querySelector(selector)) return
+      // search index defaults to v2
+      docsearch({
+      apiKey: '528a52bb98fa94e699a32180b5e72cac',
+      indexName: 'vuefe',
+      inputSelector: selector,
+      debug: false
+      })
+    })
+    </script>
+
+    <!-- fastclick -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  </body>
+</html>
